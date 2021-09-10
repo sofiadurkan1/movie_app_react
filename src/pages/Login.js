@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import {useHistory} from 'react-router-dom';
+import {SignIn, SignUpProvider} from '../auth/firebase';
 
 const Login = () => {
     const history = useHistory();
@@ -7,6 +8,12 @@ const Login = () => {
     console.log('email', email)
     const [password, setPassword] = useState("");
     console.log('password', password)
+
+
+    const handleSignIn = () => {
+        SignIn(email, password)
+        history.push('/');
+    }
 
 
     return (
@@ -22,9 +29,9 @@ const Login = () => {
                         <label for="password" className="form-label display-4">Password</label>
                         <input type="password" className="form-control" id="password" placeholder="Enter your password address..." onChange={e => setPassword(e.target.value)}/>
                     </div>
-                    <input type="button" className="btn btn-primary form-control" value="Login" onClick={null}/>
+                    <input type="button" className="btn btn-primary form-control" value="Login" onClick={handleSignIn}/>
                 </form>
-                <button className="btn btn-primary form-control" onClick={null} >Continue with Google</button>
+                <button className="btn btn-primary form-control" onClick={() => SignUpProvider()} >Continue with Google</button>
             </div>
             <div className="form-image">
                 <img src={"https://picsum.photos/1200/900"} alt="sample" />

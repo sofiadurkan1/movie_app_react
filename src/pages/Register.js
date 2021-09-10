@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import {useHistory} from 'react-router-dom';
+import {createUser, SignUpProvider} from '../auth/firebase';
 
 const Register = () => {
     const history = useHistory();
@@ -7,6 +8,12 @@ const Register = () => {
     const [lastName, setLastName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+
+    const handleRegister = () => {
+        const displayName = firstName + " " + lastName;
+        createUser(email, password, displayName);
+        history.push('/');
+    }
 
 
     return (
@@ -33,9 +40,9 @@ const Register = () => {
                         <label for="password" className="form-label display-4">Password</label>
                         <input type="password" className="form-control" id="password" placeholder="Enter your password address..." onChange={e => setPassword(e.target.value)}/>
                     </div>
-                    <input type="button" className="btn btn-primary form-control" value="Register" onClick={null}/>
+                    <input type="button" className="btn btn-primary form-control" value="Register" onClick={handleRegister}/>
                 </form>
-                <button className="btn btn-primary form-control" onClick={null} >Continue with Google</button>
+                <button className="btn btn-primary form-control" onClick={() => SignUpProvider()} >Continue with Google</button>
             </div>
         </div>
     )
