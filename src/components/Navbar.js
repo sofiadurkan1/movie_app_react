@@ -1,9 +1,11 @@
 import React, { useContext } from "react";
 import { useHistory } from "react-router-dom";
+import {AuthContext} from '../context/AuthContext';
+import {Logout} from '../auth/firebase';
 
 const Navbar = () => {
   const history = useHistory();
-  const currentUser = null;
+  const {currentUser} = useContext(AuthContext);
   
   return (
     <div>
@@ -29,7 +31,7 @@ const Navbar = () => {
               <button
                 type="button"
                 class="ms-2 btn btn-outline-light"
-                onClick={() => null}
+                onClick={() => Logout()}
               >
                 Logout
               </button>

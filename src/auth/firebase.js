@@ -4,12 +4,13 @@ import 'firebase/firestore';
 
 
 const firebaseApp = firebase.initializeApp({
-    apiKey: "AIzaSyDDtMP3QoeCUx6dYI8MfrLZh01e9HC4iN4",
-    authDomain: "react-movie-app-699c7.firebaseapp.com",
-    projectId: "react-movie-app-699c7",
-    storageBucket: "react-movie-app-699c7.appspot.com",
-    messagingSenderId: "551495615781",
-    appId: "1:551495615781:web:246a3d97b46e698572c6cc"
+  apiKey: "AIzaSyAVvrBl_oyDH1FMhriYQFNL4ggc_9UpGdo",
+  authDomain: "fir-movie-app-sofia.firebaseapp.com",
+  databaseURL: "https://fir-movie-app-sofia-default-rtdb.firebaseio.com",
+  projectId: "fir-movie-app-sofia",
+  storageBucket: "fir-movie-app-sofia.appspot.com",
+  messagingSenderId: "147487365244",
+  appId: "1:147487365244:web:6e8c05dd47c9893d5651f9"
   });
 
 export const createUser = async (email, password, displayName) => {
